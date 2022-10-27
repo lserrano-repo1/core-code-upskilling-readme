@@ -4,7 +4,7 @@ const Challenge1 = (props) => {
     function setQuestionMark(inputString) {
         let ans = '';
         if (inputString !== null || inputString !== '') {
-            if (inputString.indexOf('?') === inputString.length - 1) {
+                if (inputString.endsWith('?')) {
                 return inputString;
             } else {
                 ans = inputString.trim()+"?";
