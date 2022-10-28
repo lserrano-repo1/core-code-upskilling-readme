@@ -1,10 +1,21 @@
-# core-code-upskilling-readme
-This is Core-Code bootcamp study repository
+# Core-Code-Upskilling-Readme
+This is Core-Code bootcamp study repository.
+__Author: Luis Serrano__
 
-**Assignments**
-### Week 1
-------------------------------
-### Challenge 1: ___Ensure Question___
+**Assignments / Table of contents**
+1. [Week 1](#week1)
+    1. [Challenge 1: Ensure question](#week1challenge1)
+    2. [Challenge 2: Reverse sentence](#week1challenge2)
+    3. [Challenge 3: Smallest number in array](#week1challenge3)
+
+
+
+
+
+
+### Week 1 <a name="week1"></a>
+---
+### Challenge 1: ___Ensure Question___ <a name="week1challenge1"></a>
 Given a string, write a function that returns the string with a question mark ("?") appends to the end, unless the original string ends with a question mark, in which case, returns the original string.
 
 _For example (Input --> Output)_
@@ -27,7 +38,7 @@ _For example (Input --> Output)_
     }
 ```
 
-### Challenge 2: ___Reverse sentence___
+### Challenge 2: ___Reverse sentence___ <a name="week1challenge2"></a>
 Complete the solution so that it reverses all of the words within the string passed in.
 
 _Example (Input --> Output):_
@@ -48,7 +59,7 @@ _Example (Input --> Output):_
     }
 ```
 
-### Challenge 3: ___Smallest integer in Array___ 
+### Challenge 3: ___Smallest integer in an integer array___ <a name="week1challenge3"></a>
 Given an array of integers your solution should find the smallest integer.
 
 _For example_:
