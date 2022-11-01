@@ -7,6 +7,7 @@ __Author: Luis Serrano__
     1. [Challenge 1: Ensure question](#week1challenge1)
     2. [Challenge 2: Reverse sentence](#week1challenge2)
     3. [Challenge 3: Smallest number in array](#week1challenge3)
+    4. [Challenge 4: Odd or even, sum of array elements](#week1challenge4)
 
 
 
@@ -80,6 +81,41 @@ _You can assume, for the purpose of this kata, that the supplied array will not 
         var ans = 0;
         if(Array.isArray(inputArray)){
           ans = Math.min(...inputArray);
+        }
+        return ans;
+    }
+```
+
+### Challenge 4: ___Array elements sum is either odd or even___ <a name="week1challenge4"></a>
+Given a list of integers, determine whether the sum of its elements is odd or even.
+
+_For example_:
+1. Input: [0] = Output: "even"
+2. Input: [0, 1, 4] = Output: "odd"
+3. Input: [0, -1, -5] = Output: "even"  
+_If the input array is empty consider it as: [0] (array with a zero)._
+
+#### My solution approach:
+```js
+   /**
+     * This function will sum all elements in any given array
+     * then will determine if the result is an odd or even number
+     * @param {integers} inputArray 
+     * @returns 
+     */
+    function findOddOrEven(inputArray) {
+        let ans = '';
+        if (Array.isArray(inputArray) && inputArray.length > 0) {
+            let sumTmp = 0;
+            sumTmp = inputArray.reduce((accum, num) => {
+                return accum + num;
+            }, 0);
+
+            if (sumTmp % 2 == 0) {
+                ans = 'even';
+            } else {
+                ans = 'odd';
+            }
         }
         return ans;
     }
