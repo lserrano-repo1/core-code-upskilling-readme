@@ -3,6 +3,12 @@
 
 const Challenge3 = (props) => {
 
+    /**
+     * This function will retrieve the smallest integer 
+     * in a given array
+     * @param {integers} inputArray 
+     * @returns smallest integer
+     */
     function findMinorInteger(inputArray){
         var ans = 0;
         if(Array.isArray(inputArray)){
@@ -10,8 +16,6 @@ const Challenge3 = (props) => {
         }
         return ans;
     }
-
-
 
 return (
     <>
