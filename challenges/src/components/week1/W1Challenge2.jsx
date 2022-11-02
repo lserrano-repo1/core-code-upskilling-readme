@@ -1,7 +1,8 @@
 import React from 'react';
+import '../../index.css';
 
 
-const Challenge2 = (props) => {
+const W1Challenge2 = (props) => {
     function getReverseString(inputStr) {
         let ans = '';
         if (inputStr !== null || inputStr !== '') {
@@ -15,7 +16,8 @@ const Challenge2 = (props) => {
 
     return (
         <React.Fragment>
-            <div style={{backgroundColor:'lime'}}>
+             <div className='challengeDisplayBox'>
+                <h3>Week 1 - Challenge 2</h3>
                 <div>{`Original string: ${props.strInput}`}</div>
                 <div>{`Reversed string: ${getReverseString(props.strInput)}`}</div>
             </div>
@@ -23,4 +25,4 @@ const Challenge2 = (props) => {
     );
 };
 
-export default Challenge2;
+export default W1Challenge2;
