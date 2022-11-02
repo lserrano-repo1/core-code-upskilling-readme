@@ -8,6 +8,8 @@ __Author: Luis Serrano__
     2. [Challenge 2: Reverse sentence](#week1challenge2)
     3. [Challenge 3: Smallest number in array](#week1challenge3)
     4. [Challenge 4: Odd or even, sum of array elements](#week1challenge4)
+2. [Week 2](#week2)
+    1. [Challenge 1: Palindrome string](#week2challenge1)
 
 
 
@@ -117,6 +119,43 @@ _If the input array is empty consider it as: [0] (array with a zero)._
                 ans = 'odd';
             }
         }
+        return ans;
+    }
+```
+
+
+### Week 2 <a name="week2"></a>
+---
+### Challenge 1: ___Palindrome strings___ <a name="week2challenge1"></a>
+Implement a function that checks if something is a palindrome. If the input is a number, convert it to string first.
+_Examples(Input ==> Output)_
+1. "anna"   ==> true
+2. "walter" ==> false
+3. 12321    ==> true
+4. 123456   ==> false
+
+#### My solution approach:
+```js
+   /**
+     * This function will determine if an input string
+     * is palindrome
+     * @param {*} inputStr 
+     * @returns true or false as string
+     */
+    function checkPalindrome(inputStr) {
+        let ans = 'unknown';
+        if(inputStr!==undefined && inputStr!==""){
+            let inputArray = Array.from(inputStr);
+            let reverseInputArray = inputArray.reverse();
+
+            let stringResult = reverseInputArray.join("").toString();
+            if(inputStr.trim()===stringResult.trim()){
+                ans= "true";
+            } else{
+                ans="false";
+            }
+        }
+
         return ans;
     }
 ```
