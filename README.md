@@ -10,12 +10,13 @@ __Author: Luis Serrano__
     4. [Challenge 4: Odd or even, sum of array elements](#week1challenge4)
 2. [Week 2](#week2)
     1. [Challenge 1: Palindrome string](#week2challenge1)
+    2. [Challenge 2: Well of ideas](#week2challenge2)
 
 
 
 
 
-
+---
 ### Week 1 <a name="week1"></a>
 ---
 ### Challenge 1: ___Ensure Question___ <a name="week1challenge1"></a>
@@ -123,7 +124,7 @@ _If the input array is empty consider it as: [0] (array with a zero)._
     }
 ```
 
-
+---
 ### Week 2 <a name="week2"></a>
 ---
 ### Challenge 1: ___Palindrome strings___ <a name="week2challenge1"></a>
@@ -156,6 +157,42 @@ _Examples(Input ==> Output)_
             }
         }
 
+        return ans;
+    }
+```
+
+### Challenge 2: ___Well of ideas___ <a name="week2challenge2"></a>
+You need to check the provided array (x) for good ideas 'good' and bad ideas 'bad'. If there are one or two good ideas, return 'Publish!', if there are more than 2 return 'I smell a series!'. If there are no good ideas, as is often the case, return 'Fail!'. 
+
+#### My solution approach:
+```js
+  /**
+    * This function receive a string array containing
+    * series of "good" and "bad" elements. It will analyze 
+    * the data and decide an answer to return. 
+    * @param {*} inputArray 
+    * @returns 
+    */
+    function well(inputArray) {
+        
+        let ans = 'unknown';
+        let countGood = 0;
+        if (inputArray !== undefined && Array.isArray(inputArray)) {
+            for (var elem of inputArray) {
+                if (elem === 'good') {
+                    countGood++;
+                } 
+            }
+
+            //analyze results
+            if (countGood === 0) {
+                ans = 'Fail!';
+            } else if (countGood === 1 || countGood === 2) {
+                ans = 'Publish!';
+            } else if (countGood > 2) {
+                ans = 'I smell a series!';
+            }
+        }
         return ans;
     }
 ```
