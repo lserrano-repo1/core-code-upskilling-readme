@@ -11,6 +11,7 @@ __Author: Luis Serrano__
 2. [Week 2](#week2)
     1. [Challenge 1: Palindrome string](#week2challenge1)
     2. [Challenge 2: Well of ideas](#week2challenge2)
+    3. [Challenge 3: React useState](#week2challenge3)
 
 
 
@@ -195,4 +196,50 @@ You need to check the provided array (x) for good ideas 'good' and bad ideas 'ba
         }
         return ans;
     }
+```
+
+### Challenge 3: ___React manage events___ <a name="week2challenge3"></a>
+We want to be able to see the value of the counter - so it should be rendered! And for your buttons to work they will need an onClick prop.  
+
+_In your render you should return:_  
+1. The counter display element with an id of 'counter', containing the counter value.
+2. An increment button with an id of 'increment'
+3. A decrement button with an id of 'decrement'
+
+#### My solution approach:
+```js
+import React, { useState } from 'react';
+import '../../index.css';
+
+const W2Challenge3 = () => {
+    const [counter, setCounter] = useState(0);
+
+    /**
+     * Function to increment counter value
+     */
+    function increment() {
+        setCounter(counter + 1);
+    }
+
+    /**
+     * Function to substract from counter value
+     */
+    function decrement() {
+        setCounter(counter - 1);
+    }
+
+    return (
+        <div className="challengeDisplayBox">
+            <h3>Week 2 - Challenge 3</h3>
+
+            <p>{`Result: ${counter}`}</p>
+
+            <button onClick={() => increment()}>Add [+]</button>&nbsp;
+            <button onClick={() => decrement()}>Substract [-]</button>
+
+        </div>
+    );
+};
+
+export default W2Challenge3;
 ```
