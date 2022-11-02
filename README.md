@@ -127,7 +127,7 @@ _If the input array is empty consider it as: [0] (array with a zero)._
 ### Week 2 <a name="week2"></a>
 ---
 ### Challenge 1: ___Palindrome strings___ <a name="week2challenge1"></a>
-Implement a function that checks if something is a palindrome. If the input is a number, convert it to string first.
+Implement a function that checks if something is a palindrome. If the input is a number, convert it to string first.  
 _Examples(Input ==> Output)_
 1. "anna"   ==> true
 2. "walter" ==> false
