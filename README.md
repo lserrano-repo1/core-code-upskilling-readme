@@ -12,6 +12,7 @@ __Author: Luis Serrano__
     1. [Challenge 1: Palindrome string](#week2challenge1)
     2. [Challenge 2: Well of ideas](#week2challenge2)
     3. [Challenge 3: React useState](#week2challenge3)
+    4. [Challenge 4: Santa's wish list](#week2challenge4)
 
 
 
@@ -242,4 +243,84 @@ const W2Challenge3 = () => {
 };
 
 export default W2Challenge3;
+```
+
+
+
+### Challenge 4: ___Santa's wish list___ <a name="week2challenge4"></a>
+Santa wants to simplify his life and offer children the possiblity to enter their wishlist via an online form.
+The form should be a React component and should contain:
+
+1. an input field for the child's name (with id 'name')
+2. a text area to describe the wish (id: 'wish')
+3. a drop-down indicating the priority of the wish, from 1 to 5 - default is 1 (id: 'priority')
+4. the keys in the state to store the corresponding values should be named the same as the element's id
+5. an onSubmit action calling the function handleSubmit
+6. a function called handleSubmit, which
+- calls send (a function that is already provided as part of the injected properties props)
+- passes the current state as a parameter to send
+- calls event.preventDefault
+
+_it should be a controlled component (i.e. using onChange to bind input to the component's state)_
+
+#### My solution approach:
+```js
+import React,{useState} from 'react';
+
+const W2Challenge4 = (props) => {
+    let priorityVal = [
+        { label: 'P-1', value: 1 },
+        { label: 'P-2', value: 2 },
+        { label: 'P-3', value: 3 },
+        { label: 'P-4', value: 4 },
+        { label: 'P-5', value: 5 },
+    ];
+
+    const [data, setData] = useState({
+            name:'',
+            wish:'',
+            priority:0
+        });
+
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        props.send(data);
+    };
+
+    const handleChange = (e)=>{
+        setData({...data,[e.target.name]:e.target.value});
+    };
+
+    return (
+        <React.Fragment>
+            <div className="challengeDisplayBox">
+                <h3>Week 1 - Challenge 4</h3>
+                <form onSubmit={handleSubmit}>
+                    <div style={{padding:'5px'}}>
+                        <label for="name">Child's Name:&nbsp;</label>
+                        <input id="name" name="name" onChange={handleChange} value={data.name} />
+                    </div>
+                    <div style={{padding:'5px'}}>
+                        <label for="wish">Child's Name:&nbsp;</label>
+                        <textarea id="wish" name="wish" rows="4" cols="21" onChange={handleChange} value={data.wish}/>
+                    </div>
+                    <div style={{padding:'5px'}}>
+                        <label for="priority">Priority:&nbsp;</label>
+                        <select id="priority" name="priority" onChange={handleChange}  value={data.priority}>
+                            <option value="0">Select priority</option>
+                            {priorityVal.map((prty) => (
+                                <option value={prty.value}>{prty.label}</option>
+                            ))}
+                        </select>
+                    </div>
+                    <div style={{padding:'5px'}}>
+                        <button type="submit" >Enviar a la lista</button>
+                    </div>
+                </form>
+            </div>
+        </React.Fragment>
+    );
+};
+
+export default W2Challenge4;
 ```
