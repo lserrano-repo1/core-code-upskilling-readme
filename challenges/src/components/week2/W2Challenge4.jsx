@@ -17,7 +17,7 @@ const W2Challenge4 = (props) => {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        props.savedDataToList(data);
+        props.send(data);
     };
 
     const handleChange = (e)=>{

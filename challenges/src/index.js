@@ -8,6 +8,7 @@ import W2Challenge1 from './components/week2/W2Challenge1';
 import W2Challenge2 from './components/week2/W2Challenge2';
 import W2Challenge3 from './components/week2/W2Challenge3';
 import W2Challenge4 from './components/week2/W2Challenge4';
+import W3Challenge1 from './components/week3/W3Challenge1';
 
 import './index.css';
 
@@ -24,6 +25,10 @@ root.render(
             <W2Challenge2 inputArray={["good","bad","good","bad","good","bad","bad"]}/>
             <W2Challenge3 />
             <W2Challenge4 />
+
+            <W3Challenge1 />
+
+
         </div>
     </React.StrictMode>
 );
