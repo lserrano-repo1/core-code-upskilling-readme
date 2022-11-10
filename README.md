@@ -16,6 +16,7 @@ __Author: Luis Serrano__
 3. [Week 3](#week3)
     1. [Challenge 1: Build Search Filter In React](#week3challenge1)
     2. [Challenge 2: Fetch Random User Data](#week3challenge2)
+    3. [Challenge 3: React Router Blog ](#week3challenge3)
 
 
 
@@ -438,4 +439,136 @@ const W3Challenge2 = () => {
 };
 
 export default W3Challenge2;
+```
+
+
+### Challenge 3: ___React Router Blog___ <a name="week3challenge3"></a>
+Create a blog with React Router and get info from posts from a json file.
+
+#### My solution approach:
+***App.js***
+```js
+import './App.css';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import BlogHome from './Components/BlogHome';
+import BlogContent from './Components/BlogContent';
+
+function App() {
+
+    const [blogEntries, setBlogEntries] = useState([]);
+
+    const getBlogData = async () => {
+        const blogDataFromFile = await fetch('blogContent.json');
+        const blogDataJSON = await blogDataFromFile.json();
+        console.log(blogDataJSON);
+        setBlogEntries(blogDataJSON);
+        console.log(blogEntries);
+    };
+
+    useEffect(() => {
+        getBlogData();
+    }, []);
+
+    return (
+        <React.Fragment>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<BlogHome blogData={blogEntries}/>} />
+                    {blogEntries.map(
+                        (entry,index)=>{
+                            return <Route key={index} path={entry.url} 
+                                element={<BlogContent data={entry}/>}/>
+                        }
+                    )}
+
+                </Routes>
+            </BrowserRouter>
+        </React.Fragment>
+    );
+}
+export default App;
+```
+
+***BlogHome.jsx***
+```js
+import React from 'react';
+import BlogIndex from './BlogIndex';
+import '../index.css';
+
+const BlogHome = (props) => {
+ 
+    return (
+        <React.Fragment>
+            <div style={{ margin: '20px' }}>
+                <h2>Luis' Technical BLOG</h2>
+                <div>
+                    {props.blogData.map((post, index) => (
+                        <BlogIndex data={post} idk={index}/>
+                    ))}
+                </div>
+            </div>
+        </React.Fragment>
+    );
+};
+export default BlogHome;
+```
+
+***BlogIndex.jsx***
+```js
+import React from 'react';
+import '../index.css';
+
+const BlogIndex = (props) => {
+    return (
+        <React.Fragment>
+            <div id={`bEntry-${props.idk}`}>
+                <li className='topicTitle'>
+                    <a href={props.data.url}>{props.data.topic}</a> &nbsp;
+                    <span className='topicPublished'>
+                        {props.data.publisher} - {props.data.publishDate}
+                    </span>
+                </li>
+            </div>
+        </React.Fragment>
+    );
+};
+export default BlogIndex;
+```
+
+***BlogContent.jsx***
+```js
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../index.css';
+
+const BlogContent = (props) => {
+    const navigate = useNavigate();
+
+    console.log(props);
+
+    return (
+        <React.Fragment>
+            <h1>{props.data.topic}</h1>
+            <h3>
+                {props.data.publisher} -
+                <span style={{ fontSize: '12px' }}>
+                    Publish date: {props.data.publishDate}
+                </span>
+            </h3>
+            <hr />
+            <div>{props.data.content}</div>
+            <hr />
+
+            <button
+                onClick={() => {
+                    navigate('/');
+                }}>
+                Return Home
+            </button>
+        </React.Fragment>
+    );
+};
+
+export default BlogContent;
 ```
