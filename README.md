@@ -15,6 +15,7 @@ __Author: Luis Serrano__
     4. [Challenge 4: Santa's wish list](#week2challenge4)
 3. [Week 3](#week3)
     1. [Challenge 1: Build Search Filter In React](#week3challenge1)
+    2. [Challenge 2: Fetch Random User Data](#week3challenge2)
 
 
 
