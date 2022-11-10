@@ -30,7 +30,7 @@ const W2Challenge4 = (props) => {
                 <h3>Week 1 - Challenge 4</h3>
                 <form onSubmit={handleSubmit}>
                     <div style={{padding:'5px'}}>
-                        <label for="name">Child's Name:&nbsp;</label>
+                        <label  for="name">Child's Name:&nbsp;</label>
                         <input id="name" name="name" onChange={handleChange} value={data.name} />
                     </div>
                     <div style={{padding:'5px'}}>
@@ -41,8 +41,8 @@ const W2Challenge4 = (props) => {
                         <label for="priority">Priority:&nbsp;</label>
                         <select id="priority" name="priority" onChange={handleChange}  value={data.priority}>
                             <option value="0">Select priority</option>
-                            {priorityVal.map((prty) => (
-                                <option value={prty.value}>{prty.label}</option>
+                            {priorityVal.map((prty,index) => (
+                                <option key={index} value={prty.value}>{prty.label}</option>
                             ))}
                         </select>
                     </div>

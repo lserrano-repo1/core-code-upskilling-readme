@@ -9,6 +9,8 @@ import W2Challenge2 from './components/week2/W2Challenge2';
 import W2Challenge3 from './components/week2/W2Challenge3';
 import W2Challenge4 from './components/week2/W2Challenge4';
 import W3Challenge1 from './components/week3/W3Challenge1';
+import W3Challenge2 from './components/week3/W3Challenge2';
+import W3Challenge3 from './components/week3/W3Challenge3/W3Challenge3';
 
 import './index.css';
 
@@ -20,15 +22,25 @@ root.render(
             <W1Challenge2 strInput="The greatest victory is which requires no battle" />
             <W1Challenge3 inputArray={[34, -345, -1, 100]} />
             <W1Challenge4 inputArray={[0, -1, -5]} />
-
-            <W2Challenge1 strInput="APOPA"/>
-            <W2Challenge2 inputArray={["good","bad","good","bad","good","bad","bad"]}/>
+            <hr className='separator'/>
+            <W2Challenge1 strInput="APOPA" />
+            <W2Challenge2
+                inputArray={[
+                    'good',
+                    'bad',
+                    'good',
+                    'bad',
+                    'good',
+                    'bad',
+                    'bad',
+                ]}
+            />
             <W2Challenge3 />
             <W2Challenge4 />
-
+            <hr className='separator'/>
             <W3Challenge1 />
-
-
+            <W3Challenge2 />
+            <W3Challenge3 />
         </div>
     </React.StrictMode>
 );

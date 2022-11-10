@@ -17,7 +17,7 @@ const W1Challenge4 = (props) => {
                 return accum + num;
             }, 0);
 
-            if (sumTmp % 2 == 0) {
+            if (sumTmp % 2 === 0) {
                 ans = 'even';
             } else {
                 ans = 'odd';
