@@ -17,6 +17,8 @@ __Author: Luis Serrano__
     1. [Challenge 1: Build Search Filter In React](#week3challenge1)
     2. [Challenge 2: Fetch Random User Data](#week3challenge2)
     3. [Challenge 3: React Router Blog ](#week3challenge3)
+4. [Week 4](#week4)
+    1. [Challenge 1: Two to one](#week4challenge1)
 
 
 
@@ -571,4 +573,57 @@ const BlogContent = (props) => {
 };
 
 export default BlogContent;
+```
+
+
+---
+### Week 4 <a name="week4"></a>
+---
+### Challenge 1: ___Two to One___ <a name="week4challenge1"></a>
+Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
+
+a = "xyaabbbccccdefww"
+b = "xxxxyyyyabklmopq"
+longest(a, b) -> "abcdefklmopqwxy"
+
+a = "abcdefghijklmnopqrstuvwxyz"
+longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
+
+#### My solution approach:
+```js
+import React from 'react';
+import '../../index.css';
+
+/**
+ * TwoToOne
+ * @param {*} props 
+ * @returns 
+ */
+const W4Challenge1 = (props)=> {
+
+    function TwoToOne(stringA, stringB) {
+        var stringC = stringA.trim() + stringB.trim();
+        var arrC = stringC.split('').sort();
+        var uniques = arrC.filter(
+            (elem, index) => arrC.indexOf(elem) === index
+        );
+
+        return uniques;
+    }
+
+    return (
+        <>
+            <div className="challengeDisplayBox">
+                <h3>Week 4 - Challenge 1</h3>
+                <div>{`String 1: ${props.stringA}`}</div>
+                <div>{`String 3: ${props.stringB}`}</div>
+                <div>{`Longest unique string: ${TwoToOne(props.stringA, props.stringB)}`}</div>
+            </div>
+        </>
+    );
+
+};
+
+
+export default W4Challenge1;
 ```
