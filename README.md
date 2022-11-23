@@ -19,6 +19,7 @@ __Author: Luis Serrano__
     3. [Challenge 3: React Router Blog ](#week3challenge3)
 4. [Week 4](#week4)
     1. [Challenge 1: Two to one](#week4challenge1)
+    2. [Challenge 2: Leap years](#week4challenge2)
 
 
 
@@ -626,4 +627,48 @@ const W4Challenge1 = (props)=> {
 
 
 export default W4Challenge1;
+```
+
+### Challenge 2: ___Leap years___ <a name="week4challenge2"></a>
+In this kata you should simply determine, whether a given year is a leap year or not. In case you don't know the rules, here they are:
+
+years divisible by 4 are leap years
+but years divisible by 100 are not leap years
+but years divisible by 400 are leap years
+
+#### My solution approach:
+```js
+import React from 'react';
+import '../../index.css';
+
+const W4Challenge2 = (props) => {
+    const leapYear = (year) => {
+        let ans = '';
+        if (year !== undefined || year !== null || year !== '') {
+            ans = year + ' is not leap year';
+            let rule1 = parseInt(year) % 400 === 0;
+            let rule2 = parseInt(year) % 4 === 0;
+            let rule3 = parseInt(year) % 100 !== 0;
+            if ((rule1 && rule3) || rule2) {
+                ans = year + ' is leap year';
+            }
+        }
+
+        return ans;
+    };
+
+    return (
+        <>
+            <div className="challengeDisplayBox">
+                <h3>Week 4 - Challenge 1</h3>
+                <div>{`Years list : ${props.years}`}</div>
+                {props.years.split(',').map((year) => (
+                    <div>{`${leapYear(year)}`}</div>
+                ))}
+            </div>
+        </>
+    );
+};
+
+export default W4Challenge2;
 ```
