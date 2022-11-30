@@ -20,6 +20,7 @@ __Author: Luis Serrano__
 4. [Week 4](#week4)
     1. [Challenge 1: Two to one](#week4challenge1)
     2. [Challenge 2: Leap years](#week4challenge2)
+    3. [Challenge 3: Maximum Length Difference](#week4challenge3)
 
 
 
@@ -671,4 +672,75 @@ const W4Challenge2 = (props) => {
 };
 
 export default W4Challenge2;
+```
+
+### Challenge 3: ___Maximum Length Difference___ <a name="week4challenge3"></a>
+You are given two arrays a1 and a2 of strings. Each string is composed with letters from a to z. Let x be any string in the first array and y be any string in the second array.
+
+Find max(abs(length(x) − length(y)))
+
+If a1 and/or a2 are empty return -1 in each language except in Haskell (F#) where you will return Nothing (None).
+
+Example:
+a1 = ["hoqq", "bbllkw", "oox", "ejjuyyy", "plmiis", "xxxzgpsssa", "xxwwkktt", "znnnnfqknaz", "qqquuhii", "dvvvwz"]   
+a2 = ["cccooommaaqqoxii", "gggqaffhhh", "tttoowwwmmww"]
+mxdiflg(a1, a2) --> 13
+
+#### My solution approach:
+```js
+import React from 'react';
+
+const W4Challenge3 = () => {
+    
+    let arr1 = ['hoqq','bbllkw','oox',
+        'ejjuyyy','plmiis','xxxzgpsssa',
+        'xxwwkktt','znnnnfqknaz','qqquuhii',
+        'dvvvwz'];
+
+    let arr2 = ['cccooommaaqqoxii'
+        , 'gggqaffhhh'
+        , 'tttoowwwmmww'];
+
+    function maxDifference(array1, array2) {
+        let arr1Minimumlenght = 0;
+        let arr1Maximumlenght = 0;
+        let arr2Minimumlenght = 0;
+        let arr2Maximumlenght = 0;
+        let max=0;
+
+        if ( array1 === undefined || array1.length === 0 
+             || array2 === undefined || array2.length === 0) 
+        {
+            return -1;
+        } else {
+            array1.sort((ele1, ele2) => {return ele1.length - ele2.length;});
+            array2.sort((ele1, ele2) => {return ele1.length - ele2.length;});
+
+            arr1Minimumlenght = array1[0].length;
+            arr1Maximumlenght = array1[array1.length - 1].length;
+
+            arr2Minimumlenght = array2[0].length;
+            arr2Maximumlenght = array2[array2.length - 1].length;
+
+            max=Math.max(
+                Math.abs(arr1Minimumlenght - arr2Maximumlenght),
+                Math.abs(arr2Minimumlenght - arr1Maximumlenght)
+            );
+            return max;
+        }
+    }
+
+    return (
+        <>
+            <div className="challengeDisplayBox">
+                <h3>Week 4 - Challenge 3</h3>
+                <div>{`Array 1: ${arr1}`}</div>
+                <div>{`Array 2: ${arr2}`}</div>
+                <div>{`Max lenght: ${maxDifference(arr1, arr2)}`}</div>
+            </div>
+        </>
+    );
+};
+
+export default W4Challenge3;
 ```
